@@ -1,15 +1,15 @@
 data "aws_ami" "amazon-linux-2-ami" {
- most_recent = true
- 
- owners = ["amazon"]
- filter {
-       name   = "architecture"
-       values = ["x86_64"]
-     }
- filter {
-   name   = "name"
-   values = ["amzn2-ami-hvm*"]
- }
+  most_recent = true
+
+  owners = ["amazon"]
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm*"]
+  }
 }
 
 data "terraform_remote_state" "sgs" {

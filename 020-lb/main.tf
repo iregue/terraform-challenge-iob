@@ -8,16 +8,16 @@ resource "aws_lb" "alb_nginx" {
   enable_deletion_protection = false
 
   tags = {
-    Name = "alb-nginx"
+    Name    = "alb-nginx"
     Project = "iob-test"
   }
 }
 
 resource "aws_lb_target_group" "nginx_tg" {
-  name     = var.nginx_tg_name
-  port     = var.nginx_tg_port
-  protocol = var.nginx_tg_protocol
-  vpc_id   = var.vpc_id
+  name        = var.nginx_tg_name
+  port        = var.nginx_tg_port
+  protocol    = var.nginx_tg_protocol
+  vpc_id      = var.vpc_id
   target_type = var.target_type
 }
 

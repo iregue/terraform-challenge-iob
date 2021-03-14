@@ -24,7 +24,7 @@ EOF
 }
 
 resource "aws_iam_policy" "s3_policy" {
-  name        = "s3fullaccess-policy"
+  name = "s3fullaccess-policy"
 
   policy = <<EOF
 {
@@ -52,20 +52,20 @@ resource "aws_key_pair" "iregueiro" {
 
 
 resource "aws_instance" "nginx_instance" {
-  ami        = data.aws_ami.amazon-linux-2-ami.image_id 
-  instance_type = var.nginx_instance_type
+  ami                  = data.aws_ami.amazon-linux-2-ami.image_id
+  instance_type        = var.nginx_instance_type
   iam_instance_profile = aws_iam_instance_profile.s3_profile.name
 
   user_data_base64 = base64encode(local.instance-userdata)
-  key_name = aws_key_pair.iregueiro.key_name
+  key_name         = aws_key_pair.iregueiro.key_name
 
   vpc_security_group_ids = [
     data.terraform_remote_state.sgs.outputs.ssh_securitygroup_output.sg_id,
     data.terraform_remote_state.sgs.outputs.nginx_securitygroup_output.sg_id
-    ]
+  ]
 
   tags = {
-    Name = "nginx-instance"
+    Name    = "nginx-instance"
     Project = "iob-test"
   }
 

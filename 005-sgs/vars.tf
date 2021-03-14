@@ -3,10 +3,10 @@ variable "ssh_sg_name" {
 }
 
 variable "ssh_allowed_ips" {
-    default = [
-        "139.47.97.91/32",
-        "63.33.143.190/32"
-    ]
+  default = [
+    "139.47.97.91/32",
+    "63.33.143.190/32"
+  ]
 }
 
 variable "ssh_ingress_from_port" {
@@ -34,9 +34,9 @@ variable "alb_sg_name" {
 }
 
 variable "alb_allowed_ips" {
-    default = [
-        "0.0.0.0/0"
-    ]
+  default = [
+    "0.0.0.0/0"
+  ]
 }
 
 variable "alb_ingress_from_port" {
